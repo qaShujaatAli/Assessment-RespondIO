@@ -52,7 +52,7 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
     Then('[Add Workflow User] User taps on Submit', () => 
     {
         cy.get('button[type="submit"]').click();
-        cy.get('.float-end > .v-btn--elevated').click();
+        cy.get('span').contains('Skip').click();
     })
     
     Then('[Add Workflow User] Verify User is invited successfully', () => 

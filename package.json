@@ -1,0 +1,31 @@
+{
+  "name": "Cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clear_report": "rm -r allure-report/* ; rm allure-results/* ; rm -r cypress/screenshots/* ; rm -r cypress/videos/*",
+    "e2e_allure": "cypress run --e2e --headed -b chrome --env allure=true",
+    "allure_report": "allure generate allure-results --clean -o allure-report",
+    "allure:history": "mv -f allure-report/history allure-results/history && rm -r allure-report || true"
+  },
+  "keywords": [],
+  "author": "Shujaat Ali",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.5.1",
+    "guid-typescript": "^1.0.9"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "testFiles": "**/*.{feature,features}",
+    "stepDefinitions": "cypress/e2e/**/Step_Definitions/*.{js,ts}"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.4",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@shelex/cypress-allure-plugin": "^2.39.1",
+    "mocha": "^10.2.0"
+  }
+}
